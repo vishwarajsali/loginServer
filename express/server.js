@@ -17,6 +17,14 @@ router.get('/', (req, res) => {
    res.send("Vish login API Home");
 })
 
+router.get('/login', (req, res, next) =>{
+  //if(err) throw err;
+  res.send(
+      {msg : 'login'}
+      )
+})
+
+
 app.use('/users', users);
 
 
