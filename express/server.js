@@ -14,22 +14,18 @@ app.use(bodyParser.json());
 
 
 router.get('/', (req, res) => {
-   res.send("Vish login API Home");
+   res.json({msg: "Vish login API Home"});
 })
 
-router.get('/login', (req, res, next) =>{
-  //if(err) throw err;
-  res.send(
-      {msg : 'login'}
-      )
-})
-
+ 
 
 app.use('/.netlify/functions/server/users', users);
 
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-//app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/users', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+
 
 module.exports = app;
 module.exports.handler = serverless(app);
