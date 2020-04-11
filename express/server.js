@@ -25,7 +25,7 @@ router.get('/login', (req, res, next) =>{
 })
 
 
-app.use('/users', users);
+app.use('/.netlify/functions/server/users', users);
 
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
